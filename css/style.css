@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 
+a.skip{
+    background: white;
+    padding: 6px;
+    -webkit-transition: top 1s ease-out;
+    transition: left 1s ease-out;
+    z-index: 1;
+    position: absolute;
+    left: -400px;
+    top: -200px;
+}
+  
+  
+a.skip:focus{
+    top: 20px;
+    left: 0px;
+    bottom: inherit;
+}
+
 header ul{
     overflow: hidden;
     background-color: #BBB;
@@ -38,7 +56,6 @@ main{
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
 
 }
 
@@ -80,6 +97,7 @@ h3{
 }
 
 
+
 img{
     display: block;
     width: 95%;
@@ -90,6 +108,13 @@ img{
 img:hover{
     animation: magnify 1s ease-in-out;
 }
+
+@media (prefers-reduced-motion) {
+    img:hover {
+      animation: none;
+    }
+  }
+
 
 main div:nth-child(3n) img{
     border: 4px blue solid;
@@ -102,8 +127,6 @@ main div:nth-child(3n) img{
     height: auto;
     row-gap: 16px;   
 }
-
-
 
 .flex-container > div{
     flex-basis: 48%;
@@ -119,13 +142,13 @@ main div:nth-child(3n) img{
 
 
 
-.grid-container-2{
+.grid-container{
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 16px;
 }
 
-.grid-container-2 > div:not(.alphabet){
+.grid-container > div:not(.alphabet){
     background-color: #fff;
     border-radius: 8px;
     padding: 16px;
@@ -134,9 +157,7 @@ main div:nth-child(3n) img{
 
 
 
-
-
-.grid-container-2 > div > ul{
+.grid-container > div > ul{
     font-family: 'SF Pro','Helvetica Neue', sans-serif;
     font-size: 75%;
 }
@@ -218,3 +239,20 @@ footer a, footer a:visited{
         width: 50%;
     }
 }
+
+
+@media (prefers-color-scheme: dark) {
+    h1, h2, h3, p, li, .alphabet, dd, dt{
+        color: #FFF;
+    }
+    a{
+        color:aqua;
+    }
+    main{
+        background-image: none;
+        background-color: #333;
+    }
+    .flex-container > div,  .grid-container > div:not(.alphabet){
+        background-color: #666;
+    }
+  }
